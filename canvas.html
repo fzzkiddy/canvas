@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Express test</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
+        <style>
+                .box{
+                        width: 400px;
+                        height: 200px;
+                        background: #dbb1e0;
+                        position: relative;
+                }
+                
+                .ball1{
+                        width: 60px;
+                        position: absolute;
+                        animation: jump 1s steps(2, end) infinite;
+                        
+                        /* animation-timing-function: cubic-bezier(.55, 0, .85, .36);  */
+                }
+                /* .ball2{
+                        width: 60px;
+                        position: absolute;
+                        animation: jump 1s forwards;
+                } */
+                @keyframes jump{
+                        0% {transform: translate(0, 100px);}
+                        10%{transform: translate(10px, 90px);}
+                        20%{transform: translate(20px, 80px);}
+                        30%{transform: translate(30px, 70px);}
+                        40%{transform: translate(40px, 60px);}
+                        50%{transform: translate(50px, 50px);}
+                        60%{transform: translate(60px, 40px);}
+                        70%{transform: translate(70px, 50px);}
+                        80%{transform: translate(80px, 60px);}
+                        90%{transform: translate(100px, 70px);}
+                        99%{transform: translate(110px, 80px);opacity: 0;}
+                        100%{opacity: 0;}
+                }
+                
+                .wrap{
+                        width: 50px;
+                        height: 50px;
+                        border: 1px solid salmon;
+                        position: relative;
+                        /* animation: translateX 1s infinite ease-in-out alternate; */
+                        animation: translateX 3600ms infinite linear normal;
+                }
+                .static{
+                        width: 60px;
+                        position: absolute;
+                        
+                        /* animation-timing-function: cubic-bezier(.55, 0, .85, .36);  */
+                }
+                .ball{
+                        animation: translateY 300ms infinite ease-in-out alternate;
+                        animation-timing-function: cubic-bezier(.55, .85, .36); 
+                        /* animation-iteration-count: 4; */
+                }
+                .ball2-box{
+                        position: absolute;
+                        top: -50px;
+                        left: 150px;
+                        opacity: 0;
+                        animation: fade 10ms 1s ease-in-out forwards;
+                }
+                .ball2{
+                        
+                        /* animation: translateY 500ms 1s infinite ease-in-out forwards; */
+                        /* animation-timing-function: cubic-bezier(.55, 0, .85, .36);  */
+                }
+                @keyframes translateX {
+                        20% { transform: translate(50px, -20px); }
+                        40% { transform: translate(100px, -40px); }
+                        60% { transform: translate(200px, -100px); }
+                        100% { transform: translate(300px, -200px); }
+                }
+                @keyframes translateY {
+                        100% { transform: translateY(-50px);}
+                }
+               
+                .mogu{
+                        background: gray;
+                        width: 30px;
+                        height: 20px;
+                        border-top-left-radius: 50%;
+                        border-top-right-radius: 50%;
+                        position: absolute;
+                        top: -20px;
+                        left: 170px;
+                        animation: hide 10ms 900ms ease-in-out forwards;
+                }
+                @keyframes hide{
+                        100%{opacity: 0;}
+                }
+                @keyframes fade{
+                        100%{opacity: 1;}
+                }
+                .contain{
+                        height: auto;
+                        width: 100%;
+                        position: relative;
+                        background: #23db9e;
+                }
+
+        </style>
+</head>
+
+<body>
+  <div id='root'>canvas Static HTML</div>
+  <router-view></router-view>
+  <Canvas width="500" id='canvas' height="500" bgcolor='#f2f' tabindex="0">
+
+        Sorry, your browser doesn't support the HTML5 game      
+  </Canvas>
+  <div class="contain">
+        <div class='box'>
+                <div class='wrap' id='wrap1'>
+                        <img class="ball static" src="./img/5cde14882ea5e2f16b1599a996128dd4.png" alt="">
+                </div>
+                <div class='mogu'></div>
+                        
+        </div>
+        <div class='ball2-box'>
+                <img class=" static" src="./img/5cde14882ea5e2f16b1599a996128dd4.png" alt="">
+        </div>
+  </div>
+  
+  <!-- <div class='box'>
+        <img class="ball1" src="./img/5cde14882ea5e2f16b1599a996128dd4.png" alt="">
+  </div>
+  <div class='box'>
+        <img class="ball2" src="./img/5cde14882ea5e2f16b1599a996128dd4.png" alt="">
+  </div> -->
+  
+  <script>
+        (function() {
+                canvas = document.getElementById('canvas');
+                console.log(canvas)
+                // 画布2d
+                ctx = canvas.getContext("2d")
+        })()
+  </script>
+</body>
+</html>
