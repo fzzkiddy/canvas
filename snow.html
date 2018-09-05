@@ -30,7 +30,7 @@
 
 <body>
         <!-- <img id='ball' src='./img/timg.jpeg' style='width: 30px;'/> -->
-        <canvas id='myCanvas' style="background: #ccc; display: block;">
+        <canvas id='myCanvas' style="background: #21c9f3; display: block;">
                 你的浏览器不支持canvas,请升级你的浏览器
         </canvas>
         <script>
@@ -51,9 +51,8 @@
                         this.x = x;
                         this.y = y
                         this.r = Math.random() * 1 + 1.5
-                        let alpha = (Math.floor(Math.random() * 10) + 1) / 10 / 2
+                        let alpha = (Math.floor(Math.random() * 10) + 1) / 10
                         this.color = 'rgba(255, 255, 255, ' + alpha + ')'
-
                 }
                
                 Round_item.prototype.draw = function () {
@@ -65,7 +64,7 @@
                         ctx.fill();
                 };
                 Round_item.prototype.move = function () {
-                        this.y += 1;
+                        this.y += .8;
                         if (this.y >= 200)
                         this.y = 0;
                         this.draw();
@@ -78,7 +77,7 @@
                 }
                 function init() {
                         for (var i = 0; i < initRoundPopulation; i++) {
-                        round[i] = new Round_item(i, Math.random() * WIDTH, Math.random() * HEIGHT);
+                        round[i] = new Round_item(i, Math.random() * WIDTH + 1, Math.random() * HEIGHT * .5);
                         round[i].draw();
                         }
                         animate()
