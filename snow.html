@@ -40,7 +40,7 @@
                 // if (!canvas.getContext) return
                 // 获取2d 上下文对象 (环境) 定义画布
                 let ctx = canvas.getContext('2d')
-                const initRoundPopulation = 50
+                const initRoundPopulation = 80
                 let round = []
                 let WIDTH = canvas.clientWidth
                 let HEIGHT = canvas.clientHeight
@@ -64,9 +64,10 @@
                         ctx.fill();
                 };
                 Round_item.prototype.move = function () {
-                        this.y += .8;
-                        if (this.y >= 200)
-                        this.y = 0;
+                        const random = Math.random() * 1 + 1
+                        this.y += random;
+                        if (this.y >= 150)
+                        this.y = -10;
                         this.draw();
                 };
                 function animate() {
